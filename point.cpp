@@ -1,27 +1,36 @@
 #include "point.h"
 #include <sstream>
 #include <iomanip>
-Point::Point(double x, double y): x(x), y(y){}
-double Point::getX(){
+using namespace std;
+
+Point::Point(double x, double y): x(x), y(y) {};
+
+Point::Point(const Point &other): x(other.x), y(other.y){};
+
+const double Point::getX() const {
     return x;
-}
-double Point::getY(){
+};
+
+const double Point::getY() const {
     return y;
-}
-bool Point::equals(const Point &other)const {
-    return x==other.x && y==other.y;
-}
+};
+const bool Point::equals(Point &other) const {
+    return other.x == x && other.y==y;
+};
+
 std::string Point::toString(){
     std::ostringstream oss;
-    oss<<std::fixed<<std::setprecision(1);
-    oss<<"Point("<<x<<", "<<y<<")";
+    oss << fixed << setprecision(1);
+    oss << "Point(" << x << ", " << y << ")";
     return oss.str();
-}
-void Point::move(double x,double y){
-    this->x+=x;
-    this->y+=y;
-}
+};
+
 void Point::flip(){
-    x=x*(-1);
-    y=y*(-1);
-}
+    x = -x;
+    y = -y;
+};
+
+void Point::move (double a, double b) {
+    x=x+a;
+    y=y+b;
+};

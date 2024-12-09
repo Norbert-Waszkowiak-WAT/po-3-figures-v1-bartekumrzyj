@@ -1,21 +1,20 @@
-#ifndef POINT_H
-#define POINT_H
+#ifndef UNTITLED_POINT_H
+#define UNTITLED_POINT_H
 #include <string>
-#include <iostream>
+using namespace std;
 
-class Point{
+class Point {
 private:
     double x;
     double y;
-
 public:
-    Point():x(0),y(0){};
     Point(double x, double y);
-    bool equals(const Point& other)const;
-    double getX();
-    double getY();
+    Point(const Point &other);
+    const bool equals(Point &other) const;
+    string toString();
+    const double getX() const;
+    const double getY() const;
     void flip();
-    void move(double dx, double dy);
-    std::string toString();
+    void move(double a, double b);
 };
 #endif

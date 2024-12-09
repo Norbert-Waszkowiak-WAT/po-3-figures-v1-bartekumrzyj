@@ -1,18 +1,21 @@
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
-#include <iostream>
+#ifndef UNTITLED_TRIANGLE_H
+#define UNTITLED_TRIANGLE_H
+#include <string>
 #include "point.h"
- class Triangle {
-    private:
-        Point a, b, c;
-    public:
-        Triangle();
-        Triangle(Point a, Point b, Point c);
-        Triangle(const Triangle &other);
-        bool equals(const Triangle &other);
-        void flip();
-        void move(double x, double y);
-        std::string toString();
-        double getSurface();
- };
- #endif
+using namespace std;
+
+class Triangle {
+private:
+    Point a;
+    Point b;
+    Point c;
+public:
+    Triangle(Point a, Point b, Point c);
+    Triangle(const Triangle &other);
+    bool equals(Triangle &other);
+    string toString();
+    void flip();
+    void move(double p, double d);
+    double getSurface();
+};
+#endif
